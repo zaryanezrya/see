@@ -1,6 +1,7 @@
+#include <assert.h>
+
 #include "ioc.h"
 
-#include <assert.h>
 
 int add(int a, int b)
 {
@@ -24,11 +25,9 @@ void add_function(void* context){
 }
 
 void test_executable(){
-    add_context_t ctx;
+    add_context_t ctx = {100, 101};
     see_executable_t p = {&ctx, add_function};
 
-    ctx.a = 101;
-    ctx.b = 100;
     see_executable_invoke(&p);
     
     assert(ctx.res==201);
