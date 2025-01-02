@@ -13,4 +13,3 @@ test_core.o: test_core.c
 
 test_core: test_core.o seecorelib.a
 	gcc -o $(OUTDIR)/test_core $(OUTDIR)/test_core.o $(OUTDIR)/seecorelib.a
-	$(OUTDIR)/test_core

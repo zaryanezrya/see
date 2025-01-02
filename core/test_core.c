@@ -1,10 +1,42 @@
 #include "ioc.h"
 
-#include <stdio.h>
+#include <assert.h>
+
+int add(int a, int b)
+{
+    return a+b;
+}
+
+typedef struct {
+    int a;
+    int b;
+    int res;
+} add_context_t;
+
+void add_function(void* context){
+    add_context_t* ctx = context;
+
+    int a = ctx->a;
+    int b = ctx->b;
+    int res = add(a, b);
+
+    ctx->res = res;
+}
+
+void test_executable(){
+    add_context_t ctx;
+    see_executable_t p = {&ctx, add_function};
+
+    ctx.a = 101;
+    ctx.b = 100;
+    see_executable_invoke(&p);
+    
+    assert(ctx.res==201);
+}
+
 
 int main(){
-    printf("asdasdasd\n");
-    
+    test_executable();
     
     return 0;
 }
