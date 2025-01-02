@@ -7,11 +7,11 @@
 int main()
 {
     see_resolve_query_t q = {
-        "IoC.Strategy"
+	"IoC.Strategy"
     };
     see_resolve(&q);
-    
-    printf("%s\n", (char*)q.ctx);
+
+    printf("%s\n", (char *) q.ctx);
 
     return 0;
 }

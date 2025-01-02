@@ -3,9 +3,9 @@
 
 // Executable
 typedef struct {
-    void* context;
-    void (*function)(void* context);
-    void (*delete_context)(void* context);
+    void *context;
+    void (*function)(void *context);
+    void (*delete_context)(void *context);
 } see_executable_t;
 
 // void _see_executable_delete_context_default(void *context) {
@@ -23,8 +23,9 @@ typedef struct {
 //     free(c);
 // }
 
-void see_executable_invoke(see_executable_t* c){
+void see_executable_invoke(see_executable_t * c)
+{
     c->function(c->context);
 }
 
-#endif //SEE_EXECUTABLE_H
+#endif				//SEE_EXECUTABLE_H

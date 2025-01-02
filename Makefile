@@ -1,3 +1,6 @@
+format:
+	VERSION_CONTROL=never indent -kr `find -type f -regex ".+\.[c|h]"`
+
 # CORE
 
 SRCDIR_CORE := $(PWD)/core
