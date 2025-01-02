@@ -2,7 +2,7 @@
 
 
 void default_resolve_strategy(see_resolve_query_t* q){
-    //q->context = q->key;
+    q->context = q->key;
     
     // if update strategy
     // see_ioc_update_resolve_straregy_t* context = q->context;
