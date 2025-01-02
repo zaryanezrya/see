@@ -1,0 +1,27 @@
+OUTDIR := ./bin
+
+# --- CORE
+
+CORE_SRCDIR		:= 	core
+IOC_SRC 		:= 	$(CORE_SRCDIR)/ioc.c \
+					$(CORE_SRCDIR)/ioc.h
+					
+EXECUTABLE_SRC	:= 	$(CORE_SRCDIR)/executable.h
+CORE_LIB 		:= 	seecorelib.a
+CORE_TEST_SRC	:= 	$(CORE_SRCDIR)/test_core.c
+CORE_TEST		:= 	seecoretest
+
+
+
+$(CORE_LIB): $(IOC_SRC) $(EXECUTABLE_SRC)
+	mkdir -p $(OUTDIR)
+	gcc -c $(IOC_SRC)
+	ar rc seeioclib.a ioc.o
+	ranlib seeioclib.a
+
+test_ioc.o: test_ioc.c
+	gcc -c test_ioc.c
+
+test_core: test_ioc.o seeioclib.a
+	gcc -o test_ioc test_ioc.o seeioclib.a
+	./test_ioc
