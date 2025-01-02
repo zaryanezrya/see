@@ -1,5 +1,5 @@
 format:
-	VERSION_CONTROL=never indent -kr `find -type f -regex ".+\.[c|h]"`
+	@VERSION_CONTROL=never indent -kr `find -type f -regex ".+\.[c|h]"`
 
 # CORE
 
