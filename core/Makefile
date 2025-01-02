@@ -1,16 +1,16 @@
-SRCDIR := 
-OUTDIR := 
+SRCDIR := .
+OUTDIR := .
 
-ioc.o: ioc.c ioc.h executable.h
-	gcc -c ioc.c ioc.h
+ioc.o: $(SRCDIR)/ioc.c $(SRCDIR)/ioc.h $(SRCDIR)/executable.h
+	gcc -c $(SRCDIR)/ioc.c -o $(OUTDIR)/ioc.o
 
-seeioclib.a: ioc.o
-	ar rc seeioclib.a ioc.o
-	ranlib seeioclib.a
+seecorelib.a: ioc.o
+	ar rc $(OUTDIR)/seecorelib.a $(OUTDIR)/ioc.o
+	ranlib $(OUTDIR)/seecorelib.a
 
 test_core.o: test_core.c
-	gcc -c test_core.c
+	gcc -c $(SRCDIR)/test_core.c -o $(OUTDIR)/test_core.o
 
-test_core: test_core.o seeioclib.a
-	gcc -o test_core test_core.o seeioclib.a
-	./test_core
+test_core: test_core.o seecorelib.a
+	gcc -o $(OUTDIR)/test_core $(OUTDIR)/test_core.o $(OUTDIR)/seecorelib.a
+	$(OUTDIR)/test_core
