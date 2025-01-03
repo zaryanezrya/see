@@ -11,4 +11,4 @@ typedef struct {
     rb_tree_node_t *right;
 } rb_tree_node_t;
 
-#endif				// SEE_RB_TREE_H
+#endif

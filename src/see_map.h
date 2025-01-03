@@ -13,7 +13,6 @@ typedef struct {
     see_map_item_t *data;
 } see_map_t;
 
-
 see_map_t *see_map_new()
 {
     see_map_t *map;
@@ -22,5 +21,4 @@ see_map_t *see_map_new()
     map->data = NULL;
 }
 
-
-#endif				// SEE_MAP_H
+#endif

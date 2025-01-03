@@ -2,8 +2,6 @@
 
 #include "../include/ioc.h"
 
-
-
 int main()
 {
     see_resolve_query_t q = {

@@ -16,4 +16,4 @@ typedef struct {
     see_executable_t *result;
 } see_ioc_update_resolve_straregy_t;
 
-#endif				//SEE_IOC_H
+#endif

@@ -8,11 +8,8 @@ typedef struct {
     void (*remove)(void *data, void *key);
 } see_map_t;
 
-
 // get
 // insert
 // delete
 
-
-
-#endif				//SEE_MAP_H
+#endif

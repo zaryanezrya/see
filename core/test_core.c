@@ -2,7 +2,6 @@
 
 #include "ioc.h"
 
-
 int add(int a, int b)
 {
     return a + b;
@@ -34,7 +33,6 @@ void test_executable()
 
     assert(ctx.res == 201);
 }
-
 
 int main()
 {
