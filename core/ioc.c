@@ -1,22 +1,33 @@
 #include "ioc.h"
 
-void default_resolve_strategy(see_resolve_query_t * q)
+int strcmp(const char *s1, const char *s2)
 {
-    q->context = q->key;
+    unsigned char uc1, uc2;
+    while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2) {
+	s1++;
+	s2++;
+    }
 
-    // if update strategy
-    // see_ioc_update_resolve_straregy_t* context = q->context;
-    // context->result = see_executable_new(update_strategy);
+    uc1 = (*(unsigned char *) s1);
+    uc2 = (*(unsigned char *) s2);
+    return ((uc1 < uc2) ? -1 : (uc1 > uc2));
 }
 
-// void update_strategy(void (*strategy)(see_resolve_query_t*) ) {
-//     resolve_strategy = strategy;
-// }
+void default_resolve_strategy(see_resolve_query_t * q)
+{
+    if (strcmp("Update IoC strategy", q->key) == 0) {
 
-void (*resolve_strategy)(see_resolve_query_t *) =
-    &default_resolve_strategy;
+    }
+}
+
+see_resolve_strategy_t resolve_strategy = &default_resolve_strategy;
 
 void see_resolve(see_resolve_query_t * q)
 {
     resolve_strategy(q);
+}
+
+void see_update_resolve_strategy(see_resolve_strategy_t new_strategy)
+{
+    resolve_strategy = new_strategy;
 }

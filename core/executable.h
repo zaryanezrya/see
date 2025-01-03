@@ -4,7 +4,6 @@
 typedef struct {
     void *context;
     void (*function)(void *context);
-    void (*delete_context)(void *context);
 } see_executable_t;
 
 // void _see_executable_delete_context_default(void *context) {
