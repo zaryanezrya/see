@@ -12,7 +12,7 @@ void see_resolve(see_resolve_query_t *);
 
 typedef void (*see_resolve_strategy_t)(see_resolve_query_t *);
 
-void see_ioc_update_resolve_strategy(see_resolve_strategy_t strategy);
+void see_update_resolve_strategy(see_resolve_strategy_t strategy);
 
 typedef struct {
     see_resolve_strategy_t strategy;
