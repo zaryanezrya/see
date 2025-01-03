@@ -15,7 +15,7 @@ int strcmp(const char *s1, const char *s2) {
 int see_update_resolve_strategy(void *ctx) {
   see_resolve_strategy_t new_strategy = ctx;
   see_resolve_strategy = new_strategy;
-  return SEE_EXECUTABLE_OK;
+  return SEE_EXECUTABLE_INVOKE_STATUS_OK;
 }
 
 int default_resolve_strategy(see_resolve_query_t * q) {
@@ -23,9 +23,9 @@ int default_resolve_strategy(see_resolve_query_t * q) {
     see_update_resolve_straregy_t *qctx = q->context;
     qctx->result->context = qctx->strategy;
     qctx->result->function = see_update_resolve_strategy;
-    return SEE_RESOLVE_OK;
+    return SEE_RESOLVE_STATUS_OK;
   }
-  return SEE_RESOLVE_KEY_NOT_FOUND;
+  return SEE_RESOLVE_STATUS_KEY_NOT_FOUND;
 }
 
 see_resolve_strategy_t see_resolve_strategy = default_resolve_strategy;

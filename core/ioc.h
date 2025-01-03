@@ -3,8 +3,8 @@
 
 #include "executable.h"
 
-#define SEE_RESOLVE_OK 0
-#define SEE_RESOLVE_KEY_NOT_FOUND 404
+#define SEE_RESOLVE_STATUS_OK 0
+#define SEE_RESOLVE_STATUS_KEY_NOT_FOUND 404
 
 typedef struct {
   char *key;
