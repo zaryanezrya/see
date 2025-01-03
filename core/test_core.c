@@ -40,10 +40,10 @@ void resolve_strategy(see_resolve_query_t * q) {
 }
 
 void test_update_resolve_strategy() {
-  see_executable_t result;
+  see_executable_t update;
   see_update_resolve_straregy_t ctx = {
     resolve_strategy,
-    &result
+    &update
   };
   see_resolve_query_t q_update_strategy = {
     "Update IoC strategy",
@@ -51,7 +51,7 @@ void test_update_resolve_strategy() {
   };
   see_resolve(&q_update_strategy);
   assert(see_resolve_strategy != resolve_strategy);
-  see_executable_invoke(&result);
+  see_executable_invoke(&update);
   assert(see_resolve_strategy == resolve_strategy);
 
   see_resolve_query_t q_test = {
