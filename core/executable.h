@@ -1,7 +1,6 @@
 #ifndef SEE_EXECUTABLE_H
 #define SEE_EXECUTABLE_H
 
-// Executable
 typedef struct {
     void *context;
     void (*function)(void *context);

@@ -3,7 +3,6 @@
 
 #include "executable.h"
 
-// IoC
 typedef struct {
     char *key;
     void *context;
