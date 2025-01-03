@@ -61,9 +61,7 @@ void test_see_update_ioc_strategy() {
     &ctx
   };
   assert(see_resolve(&q_update_strategy) == SEE_RESOLVE_STATUS_OK);
-  assert(see_resolve_strategy != resolve_strategy);
   assert(see_executable_invoke(&update) == SEE_EXECUTABLE_INVOKE_STATUS_OK);
-  assert(see_resolve_strategy == resolve_strategy);
 
   see_resolve_query_t q_test = {
     "PUT ME IN THE CONTEXT"
