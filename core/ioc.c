@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #include "ioc.h"
 
 int strcmp(const char *s1, const char *s2) {
@@ -12,18 +14,22 @@ int strcmp(const char *s1, const char *s2) {
   return ((uc1 < uc2) ? -1 : (uc1 > uc2));
 }
 
-void default_resolve_strategy(see_resolve_query_t * q) {
-  if (strcmp("Update IoC strategy", q->key) == 0) {
+void see_update_resolve_strategy(void *ctx) {
+  see_resolve_strategy_t *new_strategy = ctx;
+  see_resolve_strategy = *new_strategy;
+}
 
+void default_resolve_strategy(see_resolve_query_t * q) {
+  printf("before strcmp\n");
+  if (strcmp("Update IoC strategy", q->key) == 0) {
+    see_update_resolve_straregy_t *ctx = q->context;
+    ctx->result->context = ctx->strategy;
+    ctx->result->function = see_update_resolve_strategy;
   }
 }
 
-see_resolve_strategy_t resolve_strategy = &default_resolve_strategy;
+see_resolve_strategy_t see_resolve_strategy = default_resolve_strategy;
 
 void see_resolve(see_resolve_query_t * q) {
-  resolve_strategy(q);
-}
-
-void see_update_resolve_strategy(see_resolve_strategy_t new_strategy) {
-  resolve_strategy = new_strategy;
+  see_resolve_strategy(q);
 }

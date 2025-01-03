@@ -21,8 +21,6 @@ typedef struct {
 // free(c);
 // }
 
-void see_executable_invoke(see_executable_t * c) {
-  c->function(c->context);
-}
+void see_executable_invoke(see_executable_t *);
 
 #endif

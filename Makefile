@@ -7,7 +7,7 @@ OUTDIR_CORE := $(PWD)/bin/core
 
 core-lib:
 	@mkdir -p $(OUTDIR_CORE)
-	@make -f $(SRCDIR_CORE)/Makefile -C $(OUTDIR_CORE) seecorelib.a
+	@make -f $(SRCDIR_CORE)/Makefile -C $(OUTDIR_CORE) libseecore.a
 
 core-test: core-lib
 	@mkdir -p $(OUTDIR_CORE)

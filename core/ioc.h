@@ -17,4 +17,6 @@ typedef struct {
   see_executable_t *result;
 } see_update_resolve_straregy_t;
 
+extern see_resolve_strategy_t see_resolve_strategy;
+
 #endif

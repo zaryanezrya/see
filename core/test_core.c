@@ -37,7 +37,7 @@ void resolve_strategy(see_resolve_query_t * q) {
   q->context = q->key;
 }
 
-void test_ioc_update_strategy() {
+void test_update_resolve_strategy() {
   see_executable_t result;
   see_update_resolve_straregy_t ctx = {
     resolve_strategy,
@@ -47,14 +47,15 @@ void test_ioc_update_strategy() {
     "Update IoC strategy",
     &ctx
   };
-  // see_executable_invoke(&result);
+  see_resolve(&q);
+  see_executable_invoke(&result);
 }
 
 // ---
 
 int main() {
   test_executable();
-  test_ioc_update_strategy();
+  test_update_resolve_strategy();
 
   return 0;
 }
