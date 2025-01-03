@@ -15,18 +15,21 @@ int strcmp(const char *s1, const char *s2) {
 int see_update_resolve_strategy(void *ctx) {
   see_resolve_strategy_t new_strategy = ctx;
   see_resolve_strategy = new_strategy;
+  return SEE_EXECUTABLE_OK;
 }
 
-void default_resolve_strategy(see_resolve_query_t * q) {
+int default_resolve_strategy(see_resolve_query_t * q) {
   if (strcmp("Update IoC strategy", q->key) == 0) {
     see_update_resolve_straregy_t *qctx = q->context;
     qctx->result->context = qctx->strategy;
     qctx->result->function = see_update_resolve_strategy;
+    return SEE_RESOLVE_OK;
   }
+  return SEE_RESOLVE_KEY_NOT_FOUND;
 }
 
 see_resolve_strategy_t see_resolve_strategy = default_resolve_strategy;
 
-void see_resolve(see_resolve_query_t * q) {
-  see_resolve_strategy(q);
+int see_resolve(see_resolve_query_t * q) {
+  return see_resolve_strategy(q);
 }
