@@ -10,6 +10,5 @@ seecorelib.a: ioc.o
 test_core.o: $(SRCDIR)test_core.c
 	gcc -c $(SRCDIR)test_core.c -o test_core.o
 
-test_core: test_core.o seecorelib.a
-	echo $(SRCDIR)
-	gcc -o test_core test_core.o seecorelib.a
+test: test_core.o seecorelib.a
+	gcc -o test test_core.o seecorelib.a

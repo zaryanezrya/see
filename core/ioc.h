@@ -10,8 +10,12 @@ typedef struct {
 
 void see_resolve(see_resolve_query_t *);
 
+typedef void (*see_resolve_strategy_t)(see_resolve_query_t *);
+
+void see_ioc_update_resolve_strategy(see_resolve_strategy_t strategy);
+
 typedef struct {
-    void (*resolve_strategy)(see_resolve_query_t *);
+    see_resolve_strategy_t strategy;
     see_executable_t *result;
 } see_ioc_update_resolve_straregy_t;
 
