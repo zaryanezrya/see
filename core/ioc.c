@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "ioc.h"
 
 int strcmp(const char *s1, const char *s2) {
@@ -20,7 +18,6 @@ void see_update_resolve_strategy(void *ctx) {
 }
 
 void default_resolve_strategy(see_resolve_query_t * q) {
-  printf("before strcmp\n");
   if (strcmp("Update IoC strategy", q->key) == 0) {
     see_update_resolve_straregy_t *ctx = q->context;
     ctx->result->context = ctx->strategy;
