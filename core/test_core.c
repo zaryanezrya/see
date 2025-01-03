@@ -14,7 +14,7 @@ typedef struct {
   int res;
 } add_context_t;
 
-void add_function(void *context) {
+int add_function(void *context) {
   add_context_t *ctx = context;
 
   int a = ctx->a;
@@ -22,6 +22,8 @@ void add_function(void *context) {
   int res = add(a, b);
 
   ctx->res = res;
+
+  return 0;
 }
 
 void test_executable() {

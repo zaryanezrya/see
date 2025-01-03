@@ -12,7 +12,7 @@ int strcmp(const char *s1, const char *s2) {
   return ((uc1 < uc2) ? -1 : (uc1 > uc2));
 }
 
-void see_update_resolve_strategy(void *ctx) {
+int see_update_resolve_strategy(void *ctx) {
   see_resolve_strategy_t new_strategy = ctx;
   see_resolve_strategy = new_strategy;
 }

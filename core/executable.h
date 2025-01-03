@@ -3,9 +3,9 @@
 
 typedef struct {
   void *context;
-  void (*function)(void *context);
+  int (*function)(void *context);
 } see_executable_t;
 
-void see_executable_invoke(see_executable_t *);
+int see_executable_invoke(see_executable_t *);
 
 #endif
