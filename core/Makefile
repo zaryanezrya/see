@@ -3,7 +3,7 @@ SRCDIR := $(dir $(abspath $(firstword $(MAKEFILE_LIST))))
 executable.o: $(SRCDIR)executable.c $(SRCDIR)executable.h
 	gcc -c $(SRCDIR)executable.c -o executable.o
 
-ioc.o: $(SRCDIR)ioc.c $(SRCDIR)ioc.h executable.o
+ioc.o: $(SRCDIR)ioc.c $(SRCDIR)ioc.h 
 	gcc -c $(SRCDIR)ioc.c -o ioc.o
 
 libseecore.a: ioc.o executable.o
