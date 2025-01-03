@@ -50,7 +50,9 @@ void test_update_resolve_strategy() {
     &ctx
   };
   see_resolve(&q_update_strategy);
+  assert(see_resolve_strategy != resolve_strategy);
   see_executable_invoke(&result);
+  assert(see_resolve_strategy == resolve_strategy);
 
   see_resolve_query_t q_test = {
     "PUT ME IN THE CONTEXT"
