@@ -4,7 +4,7 @@
 #include "executable.h"
 
 #define SEE_RESOLVE_STATUS_OK 0
-#define SEE_RESOLVE_STATUS_KEY_NOT_FOUND 404
+#define SEE_RESOLVE_STATUS_KEY_NOT_FOUND -1
 
 typedef struct {
   char *key;

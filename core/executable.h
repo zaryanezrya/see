@@ -2,7 +2,7 @@
 #define SEE_EXECUTABLE_H
 
 #define SEE_EXECUTABLE_INVOKE_STATUS_OK 0
-#define SEE_EXECUTABLE_INVOKE_STATUS_ERROR 500
+#define SEE_EXECUTABLE_INVOKE_STATUS_ERROR -1
 
 typedef struct {
   void *context;
