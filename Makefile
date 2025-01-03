@@ -16,7 +16,9 @@ core-test: core-lib
 
 # ---
 
-FORMAT_OPTIONS := -kr -sob
+FORMAT_OPTIONS := 	-sai -npsl -nbc -brs -nfc1 -nprs -npcs -c33 -ce -cd33 \
+					-nsc -bbo -nbad -br -bap -di1 -hnl -cli0 -ci4 -ip0 -d0 \
+					-saw -saf -lp -nfca -cp33 -ncdb -sob -brf
 
 format:
 	@VERSION_CONTROL=never indent $(FORMAT_OPTIONS) `find -type f -regex ".+\.[c|h]"`

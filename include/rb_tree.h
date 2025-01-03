@@ -4,11 +4,11 @@
 #define NULL ((void*)0)
 
 typedef struct {
-    int key;
-    void *data;
-    rb_tree_node_t *parent;
-    rb_tree_node_t *left;
-    rb_tree_node_t *right;
+  int key;
+  void *data;
+  rb_tree_node_t *parent;
+  rb_tree_node_t *left;
+  rb_tree_node_t *right;
 } rb_tree_node_t;
 
 #endif
