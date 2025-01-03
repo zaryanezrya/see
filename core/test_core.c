@@ -2,6 +2,8 @@
 
 #include "ioc.h"
 
+// ---
+
 int add(int a, int b) {
   return a + b;
 }
@@ -43,12 +45,19 @@ void test_update_resolve_strategy() {
     resolve_strategy,
     &result
   };
-  see_resolve_query_t q = {
+  see_resolve_query_t q_update_strategy = {
     "Update IoC strategy",
     &ctx
   };
-  see_resolve(&q);
+  see_resolve(&q_update_strategy);
   see_executable_invoke(&result);
+
+  see_resolve_query_t q_test = {
+    "PUT ME IN THE CONTEXT"
+  };
+  assert(q_test.key != q_test.context);
+  see_resolve(&q_test);
+  assert(q_test.key == q_test.context);
 }
 
 // ---
