@@ -4,8 +4,7 @@
 extern see_resolve_strategy_t see_resolve_strategy;
 
 int see_update_resolve_strategy(void *ctx) {
-  see_resolve_strategy_t new_strategy = ctx;
-  see_resolve_strategy = new_strategy;
+  see_resolve_strategy = (see_resolve_strategy_t)ctx;
   return SEE_EXECUTABLE_INVOKE_STATUS_OK;
 }
 
