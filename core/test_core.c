@@ -45,7 +45,7 @@ void test_see_resolve_key_not_found() {
   assert(see_resolve(&q) == SEE_RESOLVE_STATUS_KEY_NOT_FOUND);
 }
 
-int resolve_strategy(see_resolve_query_t * q) {
+int resolve_strategy(see_resolve_query_t *q) {
   q->context = q->key;
   return SEE_RESOLVE_STATUS_OK;
 }

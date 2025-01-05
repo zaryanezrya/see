@@ -10,11 +10,11 @@ typedef struct {
   int height;
 } avl_tree_node_t;
 
-int avl_tree_node__get_height(avl_tree_node_t * node) {
+int avl_tree_node__get_height(avl_tree_node_t *node) {
   return (node == NULL) ? 0 : node->height;
 }
 
-avl_tree_node_t *avl_tree__rotate_left(avl_tree_node_t * a) {
+avl_tree_node_t *avl_tree__rotate_left(avl_tree_node_t *a) {
   avl_tree_node_t *b = a->right;
   avl_tree_node_t *c = b->left;
 
@@ -24,7 +24,7 @@ avl_tree_node_t *avl_tree__rotate_left(avl_tree_node_t * a) {
   return b;
 }
 
-avl_tree_node_t *avl_tree__rotate_right(avl_tree_node_t * node) {
+avl_tree_node_t *avl_tree__rotate_right(avl_tree_node_t *node) {
 
 }
 
