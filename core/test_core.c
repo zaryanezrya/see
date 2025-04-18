@@ -1,6 +1,8 @@
 #include <assert.h>
 
 #include "ioc.h"
+#include "maybe.h"
+#include "pair.h"
 
 // ---
 
@@ -65,11 +67,31 @@ void test_see_update_ioc_strategy() {
 
 // ---
 
+generic_pair(int, a, int, b, pair_int_int_t);
+
+void test_pair() {
+  pair_int_int_t p = {1, 2};
+  assert(p.a == 1);
+  assert(p.b == 2);
+}
+
+// ---
+
+generic_maybe(int);
+void test_maybe() {
+  maybe_int_t m;
+  assert(nothing_int.nothing == 1);
+}
+
+// ---
+
 int main() {
   test_see_executable_error();
   test_see_executable_ok();
   test_see_resolve_key_not_found();
   test_see_update_ioc_strategy();
+  test_pair();
+  test_maybe();
 
   return 0;
 }

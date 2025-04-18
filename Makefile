@@ -17,4 +17,7 @@ core-test: core-lib
 # ---
 
 fmt:
-	@clang-format -style=LLVM -i `find -type f -regex ".+\.[ch]"`
+	@clang-format -style=file -i `find -type f -regex ".+\.[ch]"`
+
+clean:
+	rm -rf bin/
