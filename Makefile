@@ -1,23 +1,9 @@
-MAKEFLAGS += --no-print-directory
+SEE_SRCDIR := $(PWD)/src
+SEE_BINDIR := $(PWD)/bin
 
-# CORE
-
-SRCDIR_CORE := $(PWD)/core
-OUTDIR_CORE := $(PWD)/bin/core
-
-core-lib:
-	@mkdir -p $(OUTDIR_CORE)
-	@make -f $(SRCDIR_CORE)/Makefile -C $(OUTDIR_CORE) libseecore.a
-
-core-test: core-lib
-	@mkdir -p $(OUTDIR_CORE)
-	@make -f $(SRCDIR_CORE)/Makefile -C $(OUTDIR_CORE) test
-	$(OUTDIR_CORE)/test
-
-# ---
-
-fmt:
-	@clang-format -style=file -i `find -type f -regex ".+\.[ch]"`
+core:
+	@mkdir -p $(SEE_BINDIR)
+	@make -f $(SEE_SRCDIR)/core/Makefile -C $(SEE_BINDIR) core
 
 clean:
-	rm -rf bin/
+	rm -rf $(SEE_BINDIR)
