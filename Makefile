@@ -9,8 +9,10 @@ core:
 	@make -f $(SEE_SRCDIR)/core/Makefile -C $(SEE_BINDIR) core
 
 modules:
+	@mkdir -p $(SEE_BINDIR)/modules
 	@for module in $(SEE_MODULES) ; do \
-		echo $$module ; \
+		echo make -f $(SEE_MODULESDIR)/$$module/Makefile -C $(SEE_BINDIR)/modules module \
+		# echo $$module ; \
 	done
 
 clean:
