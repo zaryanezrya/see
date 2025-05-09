@@ -2,10 +2,10 @@
 #define SEE_EXECUTABLE_H
 
 typedef struct {
-  void *context;
-  int (*function)(void *context);
+  void *ctx;
+  void (*execute)(void *ctx);
 } executable_t;
 
-void executable_invoke(executable_t *);
+#define EXECUTE(EXECUTABLE) EXECUTABLE.execute(EXECUTABLE.ctx)
 
 #endif
