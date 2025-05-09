@@ -1,14 +1,11 @@
 #ifndef SEE_EXECUTABLE_H
 #define SEE_EXECUTABLE_H
 
-#define SEE_EXECUTABLE_INVOKE_STATUS_OK 0
-#define SEE_EXECUTABLE_INVOKE_STATUS_ERROR -1
-
 typedef struct {
   void *context;
   int (*function)(void *context);
-} see_executable_t;
+} executable_t;
 
-int see_executable_invoke(see_executable_t *);
+void executable_invoke(executable_t *);
 
 #endif
