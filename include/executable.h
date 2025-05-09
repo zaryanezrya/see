@@ -6,6 +6,6 @@ typedef struct {
   void (*execute)(void *ctx);
 } executable_t;
 
-#define EXECUTE(EXECUTABLE) EXECUTABLE.execute(EXECUTABLE.ctx)
+void execute(executable_t *c);
 
 #endif
