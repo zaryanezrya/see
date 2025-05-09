@@ -1,30 +1,34 @@
 CC = gcc
 CFLAGS = -I ./include -std=gnu99 -Wall -g -ggdb
 
-NAME = libSee
+DIR_OUT = $(PWD)/bin
 
-INCDIR = $(PWD)/include
+# LIB
 
-BINDIR = $(PWD)/bin
-LIB_STATIC = $(BINDIR)/$(NAME).a
+LIB_NAME = libSee
+LIB_STATIC = $(DIR_OUT)/$(LIB_NAME).a
 
-LIB_SRC := $(wildcard src/*.c)
-OBJ := $(addprefix $(BINDIR)/libSee_obj/,$(notdir $(LIB_SRC:.c=.o)))
+DIR_INC_LIB = $(PWD)/include
 
+DIR_SRC_LIB = $(PWD)/src
+SRC_LIB = $(wildcard $(DIR_SRC_LIB)/*.c)
 
-all: $(LIB_STATIC)
+DIR_OBJ_LIB = $(DIR_OUT)/libSee_obj
+OBJ_LIB = $(addprefix $(DIR_OBJ_LIB)/,$(notdir $(SRC_LIB:.c=.o)))
 
+$(LIB_STATIC): $(OBJ_LIB)
+	$(AR) rcs $@ $(OBJ_LIB)
 
-clean:
-	rm -rf $(BINDIR)
-
-$(LIB_STATIC): $(OBJ)
-	$(AR) rcs $@ $(OBJ)
-
-$(BINDIR)/libSee_obj/%.o: src/%.c include/see.h
-	@mkdir -p $(BINDIR)/libSee_obj
+$(DIR_OBJ_LIB)/%.o: $(DIR_SRC_LIB)/%.c $(DIR_INC_LIB)/see.h
+	@mkdir -p $(DIR_OBJ_LIB)
 	$(CC) $< -c $(CFLAGS) -o $@
 
+# GENERAL
+
+clean:
+	rm -rf $(DIR_OUT)
+
+all: $(LIB_STATIC)
 
 
 # /bin
