@@ -2,33 +2,29 @@ CC = gcc
 CFLAGS = -I ./include -std=gnu99 -Wall -g -ggdb
 
 NAME = libSee
-VERSION = 0.0.1
-PACKAGE = libSee-${VERSION}
 
-INCDIR = ${PWD}/include
+INCDIR = $(PWD)/include
 
-BINDIR = ${PWD}/bin
-STATIC = ${NAME}.a
-DYNAMIC = ${NAME}.so
+BINDIR = $(PWD)/bin
+LIB_STATIC = $(BINDIR)/$(NAME).a
 
-SRC := $(wildcard src/*.c) $(wildcard src/core/*.c)
-OBJ := $(addprefix $(BINDIR)/obj/,$(notdir $(SRC:.c=.o)))
+LIB_SRC := $(wildcard src/*.c)
+OBJ := $(addprefix $(BINDIR)/libSee_obj/,$(notdir $(LIB_SRC:.c=.o)))
 
 
-all: $(STATIC)
-# all: $(DYNAMIC) $(STATIC)
+all: $(LIB_STATIC)
 
 
 clean:
 	rm -rf $(BINDIR)
 
-${STATIC}: $(OBJ)
-	@echo $(AR) rcs $@ $(SRC)
+$(LIB_STATIC): $(OBJ)
+	$(AR) rcs $@ $(OBJ)
 
+$(BINDIR)/libSee_obj/%.o: src/%.c include/see.h
+	@mkdir -p $(BINDIR)/libSee_obj
+	$(CC) $< -c $(CFLAGS) -o $@
 
-
-libSee_obj:
-	mkdir -p $(BINDIR)/libSee_obj
 
 
 # /bin
